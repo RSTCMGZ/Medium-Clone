@@ -14,4 +14,6 @@ window.addEventListener("scroll", function navbarColor() {
         btn.classList.add('text-white', 'btn-dark')
     }
 })
-navbarColor()
+
+
+
