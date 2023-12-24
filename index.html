@@ -88,11 +88,12 @@
               Start Reading
             </button>
           </div>
-          <div class="col-6 d-flex justify-content-end">
+          <div class="col-md-6 py-3 d-md-flex d-none justify-content-end boyut-ogren  deneme">
             <img
               id="logo"
               src="img/medium-seeklogo.com.svg"
-              class="h-100"
+              data-max-height = "600"
+              class="w-100"
               alt=""
             />
           </div>
@@ -658,16 +659,31 @@
 
     <script src="https://nextparticle.nextco.de/nextparticle.min.js"></script>
     <script src="js/app.js"></script>
-
     <script>
-      nextParticle = new NextParticle({
-        image: document.all.logo,
-        addTimestamp: true,
-        width: window.innerWidth,
-        height: window.innerHeight,
-        initPosition: "none",
-        initDirection: "none",
-      });
+      let boyutOGren = document.querySelector('.boyut-ogren')
+      let widthB = boyutOGren.offsetWidth
+      let heightB= boyutOGren.offsetHeight
+
+        let nextParticle = new NextParticle({
+          image: document.all.logo,
+          width : widthB,
+          height:heightB,
+          noise:80,
+          particle
+
+        });
+        window.onresize = function(){
+          let widthB = boyutOGren.offsetWidth
+          let heightB= boyutOGren.offsetHeight
+          if(widthB >0){
+            nextParticle.width = widthB
+            nextParticle.height = heightB
+            nextParticle.start()
+
+          }
+        }
     </script>
+
+  
   </body>
 </html>
